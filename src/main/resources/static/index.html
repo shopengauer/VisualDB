@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="VisualDB" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="author" content="VSPavlov"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Start page</title>
+    <script src = "/js/angular.js"></script>
+    <script src = "/js/angular.js"></script>
+    <script src = "/js/bootstrap.js"></script>
+    <script src = "/js/visualdb.js"></script>
+    <link rel="stylesheet" href = "/css/bootstrap.css"/>
+    <link rel="stylesheet" href = "/css/style.css"/>
+</head>
+
+<body ng-controller = "loginController">
+<!--Thymeleaf <p th:text=""/>-->
+<div class="container myWrapper">
+    <h1 ng-bind = "greeting"> </h1>
+    <div class="row">
+        <div class="col-md-4 col-md-push-4">
+            <div class="form-group">
+                <label>Name:</label>
+                <input name="name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" class="form-control"/>
+            </div>
+            <input type="button" class="btn btn-primary" value="Subscribe"/>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
