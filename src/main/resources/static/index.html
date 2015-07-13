@@ -5,34 +5,55 @@
     <meta name="author" content="VSPavlov"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Start page</title>
-    <script src = "/js/angular.js"></script>
-    <script src = "/js/angular.js"></script>
-    <script src = "/js/bootstrap.js"></script>
-    <script src = "/js/visualdb.js"></script>
-    <link rel="stylesheet" href = "/css/bootstrap.css"/>
-    <link rel="stylesheet" href = "/css/style.css"/>
+    <link rel="stylesheet" href = "angularjs/bootstrap.css"/>
+    <link rel="stylesheet" href = "angularjs/bootstrap-theme.css"/>
+    <link rel="stylesheet" href = "angularjs/style.css"/>
+    <script src = "angularjs/angular.js"></script>
+    <script src = "angularjs/controllers/visualdb.js"></script>
+    <!--<script>angular.module("VisualDB",[])</script>-->
 </head>
 
-<body ng-controller = "loginController">
+<body ng-controller = "visualDbCtrl">
 <!--Thymeleaf <p th:text=""/>-->
-<div class="container myWrapper">
-    <h1 ng-bind = "greeting">Index</h1>
-    <h1>Index</h1>
+<!--<div class="container myWrapper">-->
+    <!--<h1 ng-bind = "greeting">Index</h1>-->
+    <!--<h1>Index</h1>-->
 
-    <div class="row">
-        <div class="col-md-4 col-md-push-4">
-            <div class="form-group">
-                <label>Name:</label>
-                <input name="name" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label>Password:</label>
-                <input type="password" name="password" class="form-control"/>
-            </div>
-            <input type="button" class="btn btn-primary" value="Subscribe"/>
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 col-md-push-4">-->
+            <!--<div class="form-group">-->
+                <!--<label>Name:</label>-->
+                <!--<input name="name" class="form-control"/>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label>Password:</label>-->
+                <!--<input type="password" name="password" class="form-control"/>-->
+            <!--</div>-->
+            <!--<input type="button" class="btn btn-primary" value="Subscribe"/>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<div class="navbar navbar-inverse">
+    <a class="navbar-brand" href="#">VISUAL DB</a>
+</div>
+<div class="panel panel-default row">
+    <div class="col-xs-3">
+        Categories go here
+    </div>
+    <div class="col-xs-8">
+        <p th:text = "${model}"/>
+        <div class="well" ng-repeat="item in devices">
+            <h3>
+                Device:<strong> {{item.devicename}}</strong>
+                  <span class="label label-primary">
+                    Device type: {{item.devicetype}}
+                  </span>
+            </h3>
+            Device series: <span class="lead">{{item.deviceseries}}</span>
         </div>
     </div>
-
 </div>
 </body>
 </html>

@@ -1,13 +1,16 @@
 package com.vspavlov.visualdb.web;
 
+import com.vspavlov.visualdb.domain.Device;
+import com.vspavlov.visualdb.repository.DeviceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Василий on 12.07.2015.
@@ -15,18 +18,20 @@ import java.util.UUID;
 @Controller
 public class HomeController {
 
+
+    @Autowired
+    private DeviceRepository deviceRepository;
+
     @RequestMapping(value = "/home",method = RequestMethod.GET)
-    public String home(){
-          return "home";
+    public String home(Model model){
+        model.addAttribute("model","Thymeleaf");
+        return "home";
       }
 
     @RequestMapping("/resource")
     @ResponseBody
-    public Map<String,Object> resource() {
-        Map<String,Object> model = new HashMap<String,Object>();
-        model.put("id", UUID.randomUUID().toString());
-        model.put("content", "Hello World");
-        return model;
+    public List<Device> resource() {
+        return deviceRepository.findAll();
     }
 
 }
