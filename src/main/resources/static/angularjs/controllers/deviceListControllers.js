@@ -2,11 +2,12 @@
  * Created by Vasiliy on 13.07.2015.
  */
 
-angular.module("VisualDB").constant("activeListTypeClass","btn-primary").controller("deviceListCtrl",function($scope,$filter,activeListTypeClass){
+angular.module("VisualDB").constant("activeListTypeClass","btn-primary").controller("deviceListCtrl",function($scope,activeListTypeClass){
 
     var selectedType = null;
-     $scope.devicesOnThePage = 9;
+     $scope.devicesOnThePage = 3;
      $scope.selectedPage = 1;
+
 
     $scope.selectType = function(newType){
         selectedType = newType;
@@ -29,6 +30,15 @@ angular.module("VisualDB").constant("activeListTypeClass","btn-primary").control
 
     $scope.getPageClass= function(currentPage){
         return $scope.selectedPage == currentPage ? activeListTypeClass : "";
+    }
+
+    $scope.selectItemsOnPage = function(items){
+        $scope.selectedPage = 1;
+        $scope.devicesOnThePage = items;
+    }
+
+    $scope.getItemsOnPageClass= function(itemsOnPageClass){
+        return $scope.devicesOnThePage == itemsOnPageClass ? activeListTypeClass : "";
     }
 
 })
