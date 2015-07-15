@@ -21,4 +21,22 @@ angular.module("customFilters",[]).filter("unique",function(){
            return data;
        }
     }
+}).filter("pagination",function(){
+    return function(data,size,page){
+        if(angular.isArray(data)&&angular.isNumber(size)&&angular.isNumber(page)){
+            var start_index= size*(page - 1);
+            if(data.length<start_index){
+                return [];
+            }else{
+              // return $filter.
+            }
+
+        }else{
+            return data;
+        }
+    }
+}).filter("pageCounter",function(){
+    return function(data,size){
+
+    }
 })

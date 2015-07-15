@@ -5,9 +5,17 @@
 angular.module("VisualDB").constant("activeListTypeClass","btn-primary").controller("deviceListCtrl",function($scope,$filter,activeListTypeClass){
 
     var selectedType = null;
+     $scope.devicesOnThePage = 9;
+     $scope.selectedPage = 1;
 
     $scope.selectType = function(newType){
         selectedType = newType;
+        $scope.selectedPage = 1;
+    }
+
+    $scope.selectPage = function(newPage){
+        $scope.selectedPage = newPage;
+
     }
 
     $scope.typeFilterFn = function(device){
@@ -15,9 +23,12 @@ angular.module("VisualDB").constant("activeListTypeClass","btn-primary").control
 
     }
 
-
     $scope.getTypeClass= function(type){
         return selectedType == type ? activeListTypeClass : "";
+    }
+
+    $scope.getPageClass= function(currentPage){
+        return $scope.selectedPage == currentPage ? activeListTypeClass : "";
     }
 
 })
