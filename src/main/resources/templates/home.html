@@ -59,8 +59,15 @@
               ng-click = "selectPage($index+1)" ng-class ="getPageClass($index+1)" class="btn btn-default">{{$index+1}}</a>
 
         </div>
+        <div ng-show="showTable">
+            <!--<ng-include   src="'../angularjs/views/table.html'"></ng-include>-->
+            <ng-include src="'/table'"></ng-include>
+        </div>
     </div>
+
+    <button ng-click="showOnOff()">Show</button>
 </div>
+
 </body>
 </html>
 

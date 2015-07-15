@@ -1,0 +1,14 @@
+<table class="table" xmlns:th="http://www.w3.org/1999/xhtml">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Action</th>
+        <th>Done</th>
+    </tr>
+    </thead>
+    <p th:text = "${model}"/>
+    <tr ng-repeat="item in devices" ng-class="$odd ? 'odd' : 'even'">
+        <td>{{$index + 1}}</td>
+        <td ng-repeat="prop in item">{{prop}}</td>
+    </tr>
+</table>

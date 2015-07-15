@@ -28,6 +28,12 @@ public class HomeController {
         return "home";
       }
 
+    @RequestMapping(value = "/table",method = RequestMethod.GET)
+    public String table(Model model){
+        model.addAttribute("model","Thymeleaf server template");
+        return "table";
+    }
+
     @RequestMapping("/resource")
     @ResponseBody
     public List<Device> resource() {

@@ -7,7 +7,7 @@ angular.module("VisualDB").constant("activeListTypeClass","btn-primary").control
     var selectedType = null;
      $scope.devicesOnThePage = 3;
      $scope.selectedPage = 1;
-
+     $scope.showTable = true;
 
     $scope.selectType = function(newType){
         selectedType = newType;
@@ -39,6 +39,10 @@ angular.module("VisualDB").constant("activeListTypeClass","btn-primary").control
 
     $scope.getItemsOnPageClass= function(itemsOnPageClass){
         return $scope.devicesOnThePage == itemsOnPageClass ? activeListTypeClass : "";
+    }
+
+    $scope.showOnOff = function(){
+        $scope.showTable = !($scope.showTable);
     }
 
 })
