@@ -1,9 +1,6 @@
 package com.vspavlov.visualdb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Vasiliy on 13.07.2015.
@@ -15,6 +12,7 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Basic
     private String devicetype;
     private String deviceseries;
     private String devicename;
